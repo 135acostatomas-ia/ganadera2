@@ -1,48 +1,128 @@
-// Product catalog — Spanish, butcher chain
+// Product catalog — synced from Google Drive "LISTA DE PRECIOS ACTUAL"
 const PRODUCTS = [
-  // Vacuno
-  { id: 'p01', name: 'Bife de Chorizo', cat: 'vacuno', catLabel: 'Vacuno', price: 8900, unit: 'kg', badge: 'Premium', c1:'#7a1812', c2:'#3b0c08', desc:'Corte clásico argentino, sabor intenso y jugoso. Madurado al vacío 21 días.', origin:'Pampa Húmeda', cut:'Lomo bajo', weight:'500–800 g promedio' },
-  { id: 'p02', name: 'Ojo de Bife', cat: 'vacuno', catLabel: 'Vacuno', price: 9800, unit: 'kg', badge: 'Top venta', c1:'#8a1a14', c2:'#420f0a', desc:'Corte tierno con marmoleo abundante. Ideal a la parrilla, sellado y reposo.', origin:'Pampa Húmeda', cut:'Costilla', weight:'400–700 g' },
-  { id: 'p03', name: 'Lomo', cat: 'vacuno', catLabel: 'Vacuno', price: 12500, unit: 'kg', badge: 'Premium', c1:'#5e120e', c2:'#26060a', desc:'El corte más tierno de la res. Magro, suave, perfecto para ocasiones especiales.', origin:'Selección', cut:'Lomo fino', weight:'1.2–1.8 kg' },
-  { id: 'p04', name: 'Asado de Tira', cat: 'vacuno', catLabel: 'Vacuno', price: 6900, unit: 'kg', c1:'#6e1a14', c2:'#310a08', desc:'El clásico para el asado familiar. Costilla cortada en tiras de 4 cm.', origin:'Selección', cut:'Costillar', weight:'1.5–2 kg' },
-  { id: 'p05', name: 'Vacío', cat: 'vacuno', catLabel: 'Vacuno', price: 7500, unit: 'kg', c1:'#7d1a13', c2:'#3a0c08', desc:'Corte sabroso con cubierta de grasa. Cocción lenta para máxima ternura.', origin:'Pampa Húmeda', cut:'Falda', weight:'1.8–2.5 kg' },
-  { id: 'p06', name: 'Matambre', cat: 'vacuno', catLabel: 'Vacuno', price: 6500, unit: 'kg', c1:'#811a13', c2:'#3a0a07', desc:'Fino y versátil. Ideal relleno, a la pizza o a la parrilla.', origin:'Selección', cut:'Costillar superficial', weight:'1.5–2.2 kg' },
+  // ── Vacuno ──────────────────────────────────────────────────────────────
+  { id:'v01', name:'Asado',            cat:'vacuno', catLabel:'Vacuno', price:17999, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'El clásico corte para asado. Costilla de res con hueso, sabor inigualable a la parrilla.', origin:'Pampa Húmeda', cut:'Costillar', weight:'1.5–2.5 kg' },
+  { id:'v02', name:'Lomo',             cat:'vacuno', catLabel:'Vacuno', price:29500, unit:'kg', badge:'Premium', c1:'#5e120e', c2:'#26060a', desc:'El corte más tierno de la res. Magro, suave, perfecto para ocasiones especiales.', origin:'Selección', cut:'Lomo fino', weight:'1.2–1.8 kg' },
+  { id:'v03', name:'Vacío',            cat:'vacuno', catLabel:'Vacuno', price:22500, unit:'kg', c1:'#7d1a13', c2:'#3a0c08', desc:'Corte sabroso con cubierta de grasa. Cocción lenta para máxima ternura.', origin:'Pampa Húmeda', cut:'Falda', weight:'1.8–2.5 kg' },
+  { id:'v04', name:'Cuadril',          cat:'vacuno', catLabel:'Vacuno', price:20600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte versátil y tierno. Ideal al horno o a la parrilla.', origin:'Pampa Húmeda', cut:'Nalga', weight:'1.5–2 kg' },
+  { id:'v05', name:'Falda Parrillera', cat:'vacuno', catLabel:'Vacuno', price:13700, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Corte económico y sabroso para el asado del fin de semana.', origin:'Selección', cut:'Falda', weight:'1.5–2.5 kg' },
+  { id:'v06', name:'Ojo de Bife',      cat:'vacuno', catLabel:'Vacuno', price:24590, unit:'kg', badge:'Premium', c1:'#8a1a14', c2:'#420f0a', desc:'Corte tierno con marmoleo abundante. Ideal a la parrilla, sellado y reposo.', origin:'Pampa Húmeda', cut:'Costilla', weight:'400–700 g' },
+  { id:'v07', name:'Tapa de Asado',    cat:'vacuno', catLabel:'Vacuno', price:18400, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Cobertura del costillar, ideal para asado lento o al horno.', origin:'Selección', cut:'Costillar', weight:'1–1.5 kg' },
+  { id:'v08', name:'Arañita',          cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', c1:'#8c1c14', c2:'#3d0e0a', desc:'Músculo pequeño y tiernísimo de la paleta. Poca disponibilidad.', origin:'Selección', cut:'Paleta', weight:'200–400 g' },
+  { id:'v09', name:'Asado Americano',  cat:'vacuno', catLabel:'Vacuno', price:19500, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Costillar sin huesos estilo BBQ. Ideal a la parrilla o al horno.', origin:'Pampa Húmeda', cut:'Costillar', weight:'1–1.5 kg' },
+  { id:'v10', name:'Picaña',           cat:'vacuno', catLabel:'Vacuno', price:22500, unit:'kg', badge:'Top venta', c1:'#8a1a14', c2:'#420f0a', desc:'Corte de moda, jugoso con tapa de grasa. Perfecto a la parrilla o al horno.', origin:'Pampa Húmeda', cut:'Cuadril', weight:'1–1.8 kg' },
+  { id:'v11', name:'Costillar',        cat:'vacuno', catLabel:'Vacuno', price:17999, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Costillar entero de res. El clásico corte para el asado dominguero.', origin:'Pampa Húmeda', cut:'Costillar', weight:'3–5 kg' },
+  { id:'v12', name:'Riñonada',         cat:'vacuno', catLabel:'Vacuno', price:20600, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Corte ubicado en el lomo bajo. Tierno y con buen sabor.', origin:'Selección', cut:'Lomo bajo', weight:'1–1.5 kg' },
+  { id:'v13', name:'Nalga',            cat:'vacuno', catLabel:'Vacuno', price:21600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte magro del cuarto trasero. Ideal para milanesas y bifes.', origin:'Pampa Húmeda', cut:'Nalga', weight:'2–3 kg' },
+  { id:'v14', name:'Bife de Chorizo',  cat:'vacuno', catLabel:'Vacuno', price:24590, unit:'kg', badge:'Top venta', c1:'#7a1812', c2:'#3b0c08', desc:'Corte clásico argentino, sabor intenso y jugoso. Madurado al vacío.', origin:'Pampa Húmeda', cut:'Lomo bajo', weight:'500–800 g' },
+  { id:'v15', name:'Bola de Lomo',     cat:'vacuno', catLabel:'Vacuno', price:19600, unit:'kg', c1:'#8a1a14', c2:'#420f0a', desc:'Corte tierno y redondeado del cuarto trasero. Ideal para bifes y milanesas.', origin:'Selección', cut:'Nalga', weight:'1.5–2 kg' },
+  { id:'v16', name:'Bife Ancho',       cat:'vacuno', catLabel:'Vacuno', price:17800, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Bife del costillar con abundante sabor. Gran corte a la parrilla.', origin:'Pampa Húmeda', cut:'Costilla alta', weight:'400–600 g' },
+  { id:'v17', name:'Cuadrada',         cat:'vacuno', catLabel:'Vacuno', price:19600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte magro del cuarto trasero. Ideal para bifes y estofados.', origin:'Selección', cut:'Nalga', weight:'1.5–2.5 kg' },
+  { id:'v18', name:'Bife Angosto',     cat:'vacuno', catLabel:'Vacuno', price:17900, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Bife fino del lomo bajo. Rápido de cocinar, ideal en sartén o parrilla.', origin:'Pampa Húmeda', cut:'Lomo bajo', weight:'300–500 g' },
+  { id:'v19', name:'Peceto',           cat:'vacuno', catLabel:'Vacuno', price:22500, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Corte magro y ovalado del cuarto trasero. Ideal al horno con salsa.', origin:'Selección', cut:'Nalga', weight:'1–1.5 kg' },
+  { id:'v20', name:'Entraña',          cat:'vacuno', catLabel:'Vacuno', price:29500, unit:'kg', badge:'Premium', c1:'#8c1c14', c2:'#3d0e0a', desc:'La entraña fina, corte de sabor intenso. Cocción rápida a fuego alto.', origin:'Pampa Húmeda', cut:'Diafragma', weight:'600–900 g' },
+  { id:'v21', name:'Palomita',         cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte del cuarto delantero, ideal para guisos y estofados.', origin:'Selección', cut:'Paleta', weight:'1–1.5 kg' },
+  { id:'v22', name:'Tapa de Nalga',    cat:'vacuno', catLabel:'Vacuno', price:18400, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Cobertura de la nalga, ideal para milanesas o al horno.', origin:'Selección', cut:'Nalga', weight:'1–1.5 kg' },
+  { id:'v23', name:'Roast Beef',       cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte tierno del lomo bajo. Perfecto al horno o a la parrilla.', origin:'Selección', cut:'Lomo', weight:'1.5–2 kg' },
+  { id:'v24', name:'Marucha',          cat:'vacuno', catLabel:'Vacuno', price:16900, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Corte económico del cuarto delantero. Ideal para guisos y pucheros.', origin:'Selección', cut:'Paleta', weight:'1.5–2.5 kg' },
+  { id:'v25', name:'Paleta',           cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Corte versátil del cuarto delantero. Para horno, guisos y parrilla.', origin:'Pampa Húmeda', cut:'Paleta', weight:'2–3 kg' },
+  { id:'v26', name:'Tortuguita',       cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Pequeño músculo tierno de la paleta. Excelente para bifes o guisos.', origin:'Selección', cut:'Paleta', weight:'400–700 g' },
+  { id:'v27', name:'Colita de Cuadril',cat:'vacuno', catLabel:'Vacuno', price:22500, unit:'kg', c1:'#8a1a14', c2:'#420f0a', desc:'Pieza tierna del cuadril. Ideal al horno entero o en bifes finos.', origin:'Pampa Húmeda', cut:'Cuadril', weight:'1–1.5 kg' },
+  { id:'v28', name:'Osobuco',          cat:'vacuno', catLabel:'Vacuno', price:10999, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Rueda de la pata con hueso y médula. Clásico para el ossobuco.', origin:'Selección', cut:'Pata', weight:'400–600 g c/u' },
+  { id:'v29', name:'Matambre',         cat:'vacuno', catLabel:'Vacuno', price:16600, unit:'kg', c1:'#811a13', c2:'#3a0a07', desc:'Fino y versátil. Ideal relleno, a la pizza o a la parrilla.', origin:'Selección', cut:'Costillar superficial', weight:'1.5–2.2 kg' },
+  { id:'v30', name:'Espinazo',         cat:'vacuno', catLabel:'Vacuno', price:5500,  unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Económico y sabroso. Ideal para sopas, caldos y pucheros.', origin:'Selección', cut:'Columna', weight:'2–3 kg' },
+  { id:'v31', name:'Osobuco del Rey',  cat:'vacuno', catLabel:'Vacuno', price:10999, unit:'kg', c1:'#7a1812', c2:'#3b0c08', desc:'Osobuco de mayor tamaño, seleccionado especialmente.', origin:'Selección', cut:'Pata delantera', weight:'500–700 g c/u' },
+  { id:'v32', name:'Picada Especial',  cat:'vacuno', catLabel:'Vacuno', price:17600, unit:'kg', badge:'Casa', c1:'#7a1812', c2:'#3b0c08', desc:'Mezcla molida de la casa. Selección propia para máximo sabor.', origin:'Elaboración propia', cut:'Molida', weight:'500 g mín.' },
+  { id:'v33', name:'Tomahawk',         cat:'vacuno', catLabel:'Vacuno', price:19500, unit:'kg', badge:'Premium', c1:'#8c1c14', c2:'#3d0e0a', desc:'Bife de chorizo con costilla larga. El corte espectacular para celebraciones.', origin:'Pampa Húmeda', cut:'Costilla', weight:'1–1.5 kg' },
+  { id:'v34', name:'Falda Puchero',    cat:'vacuno', catLabel:'Vacuno', price:13700, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Ideal para el puchero tradicional argentino. Sabor intenso y meloso.', origin:'Selección', cut:'Falda', weight:'1.5–2 kg' },
+  { id:'v35', name:'Chiquizuela',      cat:'vacuno', catLabel:'Vacuno', price:10999, unit:'kg', c1:'#6e1a14', c2:'#310a08', desc:'Corte de la pata trasera, económico y sabroso para guisos.', origin:'Selección', cut:'Pata', weight:'1–1.5 kg' },
 
-  // Cerdo
-  { id: 'p07', name: 'Bondiola', cat: 'cerdo', catLabel: 'Cerdo', price: 5800, unit: 'kg', c1:'#a83830', c2:'#4d1612', desc:'Cuello de cerdo, jugoso y sabroso. Ideal al horno o brasa.', origin:'Granja certificada', cut:'Cuello', weight:'1.5–2 kg' },
-  { id: 'p08', name: 'Costillar de Cerdo', cat: 'cerdo', catLabel: 'Cerdo', price: 4900, unit: 'kg', badge: 'Oferta', c1:'#9c2c25', c2:'#4d1410', desc:'Costillar entero, perfecto para el asado del fin de semana.', origin:'Granja certificada', cut:'Costillar', weight:'2–3 kg' },
-  { id: 'p09', name: 'Pechito de Cerdo', cat: 'cerdo', catLabel: 'Cerdo', price: 5200, unit: 'kg', c1:'#b03830', c2:'#581814', desc:'Corte premium del costillar, con vetas de grasa que aportan sabor.', origin:'Selección', cut:'Costilla baja', weight:'1.2–1.8 kg' },
+  // ── Cerdo ───────────────────────────────────────────────────────────────
+  { id:'c01', name:'Carré',                    cat:'cerdo', catLabel:'Cerdo', price:8500,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Lomo de cerdo entero. Tierno, jugoso, ideal al horno con especias.', origin:'Granja certificada', cut:'Lomo', weight:'2–3 kg' },
+  { id:'c02', name:'Carré Americano',          cat:'cerdo', catLabel:'Cerdo', price:8500,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Lomo de cerdo con hueso estilo americano. Perfecto para BBQ.', origin:'Granja certificada', cut:'Lomo c/hueso', weight:'2–3 kg' },
+  { id:'c03', name:'Carré Deshuesado',         cat:'cerdo', catLabel:'Cerdo', price:10460, unit:'kg', c1:'#b03830', c2:'#581814', desc:'Lomo de cerdo sin hueso, listo para cortar y cocinar.', origin:'Granja certificada', cut:'Lomo', weight:'1.5–2.5 kg' },
+  { id:'c04', name:'Pechito de Cerdo',         cat:'cerdo', catLabel:'Cerdo', price:8500,  unit:'kg', c1:'#9c2c25', c2:'#4d1410', desc:'Costillar de cerdo con vetas de grasa que aportan sabor.', origin:'Selección', cut:'Costilla baja', weight:'1.2–1.8 kg' },
+  { id:'c05', name:'Bondiola',                 cat:'cerdo', catLabel:'Cerdo', price:9799,  unit:'kg', badge:'Top venta', c1:'#a83830', c2:'#4d1612', desc:'Cuello de cerdo, jugoso y sabroso. Ideal al horno o a la brasa.', origin:'Granja certificada', cut:'Cuello', weight:'1.5–2 kg' },
+  { id:'c06', name:'Matambrito de Cerdo',      cat:'cerdo', catLabel:'Cerdo', price:10900, unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Fino y versátil. Ideal a la pizza, relleno o a la parrilla.', origin:'Selección', cut:'Costillar superficial', weight:'400–700 g' },
+  { id:'c07', name:'Churrasquito',             cat:'cerdo', catLabel:'Cerdo', price:14520, unit:'kg', c1:'#b03830', c2:'#581814', desc:'Bife fino del lomo de cerdo. Rápido y sabroso a la parrilla.', origin:'Granja certificada', cut:'Lomo', weight:'200–300 g c/u' },
+  { id:'c08', name:'Solomillo',                cat:'cerdo', catLabel:'Cerdo', price:10900, unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'La parte más tierna del cerdo. Ideal al horno o en medallones.', origin:'Granja certificada', cut:'Solomillo', weight:'400–600 g' },
+  { id:'c09', name:'Ribs de Cerdo',            cat:'cerdo', catLabel:'Cerdo', price:12500, unit:'kg', badge:'Top venta', c1:'#9c2c25', c2:'#4d1410', desc:'Costillitas baby-style. Perfectas para BBQ con salsa y brasa lenta.', origin:'Granja certificada', cut:'Costilla', weight:'1–1.5 kg' },
+  { id:'c10', name:'Paleta de Cerdo',          cat:'cerdo', catLabel:'Cerdo', price:6500,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte del cuarto delantero. Económico y sabroso al horno.', origin:'Granja certificada', cut:'Paleta', weight:'2–3 kg' },
+  { id:'c11', name:'Jamón Fresco',             cat:'cerdo', catLabel:'Cerdo', price:7100,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Pierna de cerdo fresca. Ideal al horno entero o en bifes.', origin:'Granja certificada', cut:'Pierna', weight:'4–6 kg' },
+  { id:'c12', name:'Nalga de Cerdo',           cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte magro del cuarto trasero del cerdo. Ideal para milanesas.', origin:'Granja certificada', cut:'Nalga', weight:'1.5–2 kg' },
+  { id:'c13', name:'Peceto de Cerdo',          cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte magro y ovalado. Ideal al horno o en preparaciones frías.', origin:'Selección', cut:'Nalga', weight:'1–1.5 kg' },
+  { id:'c14', name:'Bola de Lomo de Cerdo',    cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte tierno del cuarto trasero del cerdo.', origin:'Granja certificada', cut:'Nalga', weight:'1–1.5 kg' },
+  { id:'c15', name:'Cuadril de Cerdo',         cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte tierno y versátil del cuarto trasero del cerdo.', origin:'Granja certificada', cut:'Cuadril', weight:'1–1.5 kg' },
+  { id:'c16', name:'Colita de Cuadril Cerdo',  cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Pieza pequeña y tierna del cuadril del cerdo.', origin:'Granja certificada', cut:'Cuadril', weight:'400–700 g' },
+  { id:'c17', name:'Cuadrada de Cerdo',        cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Corte magro del cuarto trasero. Ideal para bifes y milanesas.', origin:'Granja certificada', cut:'Nalga', weight:'1–1.5 kg' },
+  { id:'c18', name:'Tortugita de Cerdo',       cat:'cerdo', catLabel:'Cerdo', price:8999,  unit:'kg', c1:'#a83830', c2:'#4d1612', desc:'Pequeño músculo del cuarto trasero del cerdo.', origin:'Selección', cut:'Nalga', weight:'300–500 g' },
+  { id:'c19', name:'Osobuco de Cerdo',         cat:'cerdo', catLabel:'Cerdo', price:10999, unit:'kg', c1:'#9c2c25', c2:'#4d1410', desc:'Rueda de la pata del cerdo con hueso. Ideal para guisos.', origin:'Granja certificada', cut:'Pata', weight:'300–500 g c/u' },
 
-  // Pollo
-  { id: 'p10', name: 'Pollo Entero', cat: 'pollo', catLabel: 'Pollo', price: 3200, unit: 'kg', c1:'#c8924a', c2:'#5e3a18', desc:'Pollo de campo, criado sin antibióticos. Listo para horno.', origin:'Granja libre', cut:'Entero', weight:'1.8–2.5 kg' },
-  { id: 'p11', name: 'Pechuga Deshuesada', cat: 'pollo', catLabel: 'Pollo', price: 4500, unit: 'kg', badge: 'Top venta', c1:'#d4a05a', c2:'#664020', desc:'Pechuga sin hueso ni piel. Lista para cocinar.', origin:'Granja libre', cut:'Pechuga', weight:'400–600 g' },
-  { id: 'p12', name: 'Muslos de Pollo', cat: 'pollo', catLabel: 'Pollo', price: 3500, unit: 'kg', c1:'#bb8a44', c2:'#553414', desc:'Pieza jugosa y económica. Excelente al horno o guisado.', origin:'Granja libre', cut:'Muslo', weight:'200–300 g c/u' },
+  // ── Pollo ───────────────────────────────────────────────────────────────
+  { id:'po1', name:'Pollo Entero',              cat:'pollo', catLabel:'Pollo', price:4900,  unit:'kg', badge:'Top venta', c1:'#c8924a', c2:'#5e3a18', desc:'Pollo entero listo para horno. Tierno y jugoso.', origin:'Granja libre', cut:'Entero', weight:'1.8–2.5 kg' },
+  { id:'po2', name:'Pata y Muslo',              cat:'pollo', catLabel:'Pollo', price:4900,  unit:'kg', c1:'#c8924a', c2:'#5e3a18', desc:'Pieza jugosa y económica. Excelente al horno o guisada.', origin:'Granja libre', cut:'Pata/Muslo', weight:'250–350 g c/u' },
+  { id:'po3', name:'Pata y Muslo Deshuesado',   cat:'pollo', catLabel:'Pollo', price:9800,  unit:'kg', c1:'#d4a05a', c2:'#664020', desc:'Pata y muslo sin hueso, listos para rellenar o cocinar.', origin:'Granja libre', cut:'Muslo', weight:'200–300 g c/u' },
+  { id:'po4', name:'Suprema',                   cat:'pollo', catLabel:'Pollo', price:12500, unit:'kg', badge:'Premium', c1:'#d4a05a', c2:'#664020', desc:'Pechuga con ala, corte especial. Ideal rellena o a la parrilla.', origin:'Granja libre', cut:'Pechuga', weight:'350–500 g' },
+  { id:'po5', name:'Alitas',                    cat:'pollo', catLabel:'Pollo', price:2900,  unit:'kg', c1:'#c8924a', c2:'#5e3a18', desc:'Alitas tiernas. Ideales para horno, fritas o a la parrilla.', origin:'Granja libre', cut:'Ala', weight:'100–150 g c/u' },
 
-  // Embutidos / Achuras
-  { id: 'p13', name: 'Chorizo Parrillero', cat: 'embutidos', catLabel: 'Embutidos', price: 4200, unit: 'kg', badge: 'Casa', c1:'#7a2418', c2:'#330c08', desc:'Receta de la casa, elaborado diariamente. Mezcla de cerdo y vacuno.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~120 g c/u' },
-  { id: 'p14', name: 'Morcilla Vasca', cat: 'embutidos', catLabel: 'Embutidos', price: 3800, unit: 'kg', c1:'#3a1614', c2:'#0e0606', desc:'Morcilla cremosa con cebolla y especias. Receta tradicional.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~100 g c/u' },
-  { id: 'p15', name: 'Mollejas', cat: 'embutidos', catLabel: 'Achuras', price: 8200, unit: 'kg', badge: 'Premium', c1:'#a96a4a', c2:'#5a3018', desc:'La reina de las achuras. Limpia, lista para parrilla.', origin:'Selección', cut:'Glándula', weight:'400–600 g' },
+  // ── Achuras ─────────────────────────────────────────────────────────────
+  { id:'a01', name:'Mollejas',     cat:'achuras', catLabel:'Achuras', price:34300, unit:'kg', badge:'Premium', c1:'#a96a4a', c2:'#5a3018', desc:'La reina de las achuras. Limpias y listas para la parrilla.', origin:'Selección', cut:'Glándula', weight:'400–600 g' },
+  { id:'a02', name:'Chinchulín',   cat:'achuras', catLabel:'Achuras', price:6300,  unit:'kg', c1:'#8a5a38', c2:'#42240e', desc:'Intestino delgado de res. Infaltable en la parrilla argentina.', origin:'Selección', cut:'Intestino', weight:'500 g mín.' },
+  { id:'a03', name:'Rueda',        cat:'achuras', catLabel:'Achuras', price:5750,  unit:'kg', c1:'#9a6040', c2:'#4a2a10', desc:'Intestino grueso limpio. Ideal en parrilla a fuego lento.', origin:'Selección', cut:'Intestino grueso', weight:'500 g mín.' },
+  { id:'a04', name:'Riñón',        cat:'achuras', catLabel:'Achuras', price:6000,  unit:'kg', c1:'#8a3a30', c2:'#421a14', desc:'Riñón de res. Sabor intenso, ideal a la parrilla o salteado.', origin:'Selección', cut:'Riñón', weight:'300–500 g' },
+  { id:'a05', name:'Tripa Gorda',  cat:'achuras', catLabel:'Achuras', price:5750,  unit:'kg', c1:'#9a6040', c2:'#4a2a10', desc:'Intestino grueso de res. La tripa gorda de la parrilla clásica.', origin:'Selección', cut:'Intestino', weight:'500 g mín.' },
+  { id:'a06', name:'Lengua',       cat:'achuras', catLabel:'Achuras', price:12150, unit:'kg', c1:'#a96a4a', c2:'#5a3018', desc:'Lengua de res tierna y sabrosa. Ideal hervida o en escabeche.', origin:'Selección', cut:'Lengua', weight:'1–1.5 kg' },
+  { id:'a07', name:'Hígado',       cat:'achuras', catLabel:'Achuras', price:5450,  unit:'kg', c1:'#6a3a28', c2:'#2a1408', desc:'Hígado de res fresco, rico en hierro. Ideal en sartén con cebolla.', origin:'Selección', cut:'Hígado', weight:'1–1.5 kg' },
+  { id:'a08', name:'Corazón',      cat:'achuras', catLabel:'Achuras', price:7428,  unit:'kg', c1:'#8a3a30', c2:'#421a14', desc:'Corazón de res. Sabor intenso, ideal a la parrilla en rodajas.', origin:'Selección', cut:'Corazón', weight:'1–1.5 kg' },
+  { id:'a09', name:'Centro',       cat:'achuras', catLabel:'Achuras', price:11750, unit:'kg', c1:'#9a6040', c2:'#4a2a10', desc:'Parte central del intestino grueso. Clásico de la parrilla.', origin:'Selección', cut:'Intestino', weight:'500 g mín.' },
+  { id:'a10', name:'Mondongo',     cat:'achuras', catLabel:'Achuras', price:11000, unit:'kg', c1:'#8a5a38', c2:'#42240e', desc:'Panza de res limpia. Ideal para el guiso de mondongo tradicional.', origin:'Selección', cut:'Panza', weight:'1–1.5 kg' },
+  { id:'a11', name:'Seso',         cat:'achuras', catLabel:'Achuras', price:2900,  unit:'kg', c1:'#9a8070', c2:'#4a3828', desc:'Sesos de res, delicados. Ideales rebozados o en revuelto.', origin:'Selección', cut:'Seso', weight:'200–300 g' },
+  { id:'a12', name:'Rabo',         cat:'achuras', catLabel:'Achuras', price:11000, unit:'kg', c1:'#7a3020', c2:'#380e0a', desc:'Cola de res. Ideal para el clásico guiso de rabo estofado.', origin:'Selección', cut:'Cola', weight:'1–1.5 kg' },
+  { id:'a13', name:'Quijada',      cat:'achuras', catLabel:'Achuras', price:7750,  unit:'kg', c1:'#7a4030', c2:'#381814', desc:'Mejillas de res, gelatinosas y sabrosas. Ideales para estofados.', origin:'Selección', cut:'Mejilla', weight:'500 g–1 kg' },
 
-  // Cordero
-  { id: 'p16', name: 'Costillar de Cordero', cat: 'cordero', catLabel: 'Cordero', price: 11900, unit: 'kg', badge: 'Premium', c1:'#5e1a16', c2:'#240808', desc:'Cordero patagónico, criado en pasturas naturales.', origin:'Patagonia', cut:'Costillar', weight:'1.2–1.8 kg' },
-  { id: 'p17', name: 'Pierna de Cordero', cat: 'cordero', catLabel: 'Cordero', price: 10800, unit: 'kg', c1:'#6a1c18', c2:'#2a0a08', desc:'Pieza ideal al horno con romero y ajo. Cordero de exportación.', origin:'Patagonia', cut:'Pierna', weight:'2–3 kg' },
+  // ── Embutidos & Preparados ───────────────────────────────────────────────
+  { id:'e01', name:'Rebozadas de Carne',         cat:'embutidos', catLabel:'Embutidos', price:10900, unit:'kg', badge:'Casa', c1:'#7a2418', c2:'#330c08', desc:'Milanesas de carne rebozadas. Listas para freír o al horno.', origin:'Elaboración propia', cut:'Molida especial', weight:'~150 g c/u' },
+  { id:'e02', name:'Rebozadas de Pollo',         cat:'embutidos', catLabel:'Embutidos', price:9999,  unit:'kg', badge:'Casa', c1:'#7a2418', c2:'#330c08', desc:'Milanesas de pechuga de pollo rebozadas. Crujientes y tiernas.', origin:'Elaboración propia', cut:'Pechuga', weight:'~130 g c/u' },
+  { id:'e03', name:'Hamburguesa de Carne',       cat:'embutidos', catLabel:'Embutidos', price:17600, unit:'kg', badge:'Casa', c1:'#6e2218', c2:'#2a0a07', desc:'Medallones de carne 100% vacuna, sin conservantes.', origin:'Elaboración propia', cut:'Molida especial', weight:'~150 g c/u' },
+  { id:'e04', name:'Hamburguesa de Pollo',       cat:'embutidos', catLabel:'Embutidos', price:17600, unit:'kg', badge:'Casa', c1:'#7a2418', c2:'#330c08', desc:'Medallones de pollo caseros. Suaves y sabrosos.', origin:'Elaboración propia', cut:'Pollo', weight:'~130 g c/u' },
+  { id:'e05', name:'Salchichas Viena con Piel',  cat:'embutidos', catLabel:'Embutidos', price:12200, unit:'kg', c1:'#8a3020', c2:'#400e08', desc:'Salchichas tipo Viena con piel natural. Ideal hervidas o a la parrilla.', origin:'Elaboración propia', cut:'Tripa', weight:'~80 g c/u' },
+  { id:'e06', name:'Chorizos de Carne',          cat:'embutidos', catLabel:'Embutidos', price:13000, unit:'kg', badge:'Casa', c1:'#7a2418', c2:'#330c08', desc:'Chorizo parrillero de carne vacuna. Receta de la casa, elaborado diariamente.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~120 g c/u' },
+  { id:'e07', name:'Salchichas Parrilleras',     cat:'embutidos', catLabel:'Embutidos', price:14200, unit:'kg', c1:'#8a3020', c2:'#400e08', desc:'Salchichas especiales para parrilla. Sabor ahumado inconfundible.', origin:'Elaboración propia', cut:'Tripa', weight:'~100 g c/u' },
+  { id:'e08', name:'Chorizo Puro Cerdo',         cat:'embutidos', catLabel:'Embutidos', price:13000, unit:'kg', badge:'Casa', c1:'#7a2418', c2:'#330c08', desc:'Chorizo 100% cerdo. Sabor suave y aromático.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~120 g c/u' },
+  { id:'e09', name:'Morcilla Rosca',             cat:'embutidos', catLabel:'Embutidos', price:7900,  unit:'kg', c1:'#3a1614', c2:'#0e0606', desc:'Morcilla en forma de rosca. Sabor tradicional argentino.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~400 g' },
+  { id:'e10', name:'Morcilla Atada',             cat:'embutidos', catLabel:'Embutidos', price:7900,  unit:'kg', c1:'#3a1614', c2:'#0e0606', desc:'Morcilla atada clásica. Infaltable en el asado.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~150 g c/u' },
+  { id:'e11', name:'Morcilla Vasca',             cat:'embutidos', catLabel:'Embutidos', price:9999,  unit:'kg', c1:'#3a1614', c2:'#0e0606', desc:'Morcilla cremosa con cebolla y especias. Receta tradicional vasca.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~100 g c/u' },
+  { id:'e12', name:'Chorizo Colorado',           cat:'embutidos', catLabel:'Embutidos', price:21500, unit:'kg', c1:'#8a2010', c2:'#3a0806', desc:'Chorizo de cocinar con pimentón. Ideal para guisos y locros.', origin:'Elaboración propia', cut:'Tripa natural', weight:'~100 g c/u' },
+  { id:'e13', name:'Nuggets',                    cat:'embutidos', catLabel:'Embutidos', price:15500, unit:'kg', badge:'Casa', c1:'#c8924a', c2:'#5e3a18', desc:'Nuggets de pollo caseros. Crujientes por fuera, tiernos por dentro.', origin:'Elaboración propia', cut:'Pollo', weight:'~30 g c/u' },
+  { id:'e14', name:'Provoletta Parrillera',       cat:'embutidos', catLabel:'Embutidos', price:4550,  unit:'unidad', c1:'#b8a050', c2:'#585010', desc:'Provoleta en cazuela especial para parrilla. Lista para gratinar.', origin:'Selección', cut:'Queso', weight:'~200 g' },
+  { id:'e15', name:'Panceta Salada',             cat:'embutidos', catLabel:'Embutidos', price:24900, unit:'kg', c1:'#8a3020', c2:'#400e08', desc:'Panceta curada en sal. Ideal ahumada o a la parrilla.', origin:'Granja certificada', cut:'Panceta', weight:'500 g–1 kg' },
+  { id:'e16', name:'Panceta Ahumada',            cat:'embutidos', catLabel:'Embutidos', price:24500, unit:'kg', c1:'#5a3a20', c2:'#261808', desc:'Panceta ahumada. Sabor intenso, ideal en sándwiches y parrilla.', origin:'Granja certificada', cut:'Panceta', weight:'500 g–1 kg' },
 
-  // Hamburguesas / preparados
-  { id: 'p18', name: 'Hamburguesa Casera ×4', cat: 'preparados', catLabel: 'Preparados', price: 3600, unit: 'pack', c1:'#6e2218', c2:'#2a0a07', desc:'Medallones de carne 100% vacuna. Sin conservantes. 150g c/u.', origin:'Elaboración propia', cut:'Molida especial', weight:'600 g (4 unid.)' },
+  // ── Almacén ─────────────────────────────────────────────────────────────
+  { id:'m01', name:'Sazón Knorr (Varios)',      cat:'almacen', catLabel:'Almacén', price:2800, unit:'unidad', c1:'#4a6a3a', c2:'#1a3014', desc:'Sazón Knorr varios sabores. Para condimentar tus preparaciones.', origin:'Knorr', cut:'Condimento', weight:'Varios' },
+  { id:'m02', name:'Sazón Barbacoa',            cat:'almacen', catLabel:'Almacén', price:2950, unit:'unidad', c1:'#5a4020', c2:'#280e06', desc:'Condimento especial BBQ. Ideal para marinadas y parrilla.', origin:'Selección', cut:'Condimento', weight:'Varios' },
+  { id:'m03', name:'Carbón Chico',              cat:'almacen', catLabel:'Almacén', price:5500, unit:'unidad', c1:'#383838', c2:'#141414', desc:'Bolsa de carbón tamaño chico. Ideal para parrilla personal.', origin:'Selección', cut:'Carbón', weight:'~3 kg' },
+  { id:'m04', name:'Carbón Grande',             cat:'almacen', catLabel:'Almacén', price:8700, unit:'unidad', c1:'#383838', c2:'#141414', desc:'Bolsa de carbón tamaño grande. Para reuniones y asados familiares.', origin:'Selección', cut:'Carbón', weight:'~5 kg' },
+  { id:'m05', name:'Leña x 10 kg',              cat:'almacen', catLabel:'Almacén', price:7300, unit:'unidad', c1:'#5a3a1a', c2:'#281808', desc:'Leña seca x 10 kg. Para parrillas y hornos de barro.', origin:'Selección', cut:'Leña', weight:'10 kg' },
+  { id:'m06', name:'Maderitas Iniciador',        cat:'almacen', catLabel:'Almacén', price:900,  unit:'unidad', c1:'#6a4a28', c2:'#2a1808', desc:'Iniciadores de fuego de madera. Fáciles y seguros.', origin:'Selección', cut:'Iniciador', weight:'~20 unidades' },
+  { id:'m07', name:'Maple de Huevos Nº 1',      cat:'almacen', catLabel:'Almacén', price:5400, unit:'unidad', c1:'#c8b870', c2:'#5a4a20', desc:'Maple de 30 huevos frescos Nº 1.', origin:'Granja', cut:'Huevos', weight:'30 unidades' },
+  { id:'m08', name:'Huevos Cajita x 1/2 Doc',   cat:'almacen', catLabel:'Almacén', price:1800, unit:'unidad', c1:'#c8b870', c2:'#5a4a20', desc:'Cajita de 6 huevos frescos.', origin:'Granja', cut:'Huevos', weight:'6 unidades' },
+  { id:'m09', name:'Pan Baguetin',               cat:'almacen', catLabel:'Almacén', price:3000, unit:'kg',     c1:'#c8a860', c2:'#5a4018', desc:'Pan baguetín congelado para hornear. Crujiente y fresco.', origin:'Panadería', cut:'Pan', weight:'1 kg' },
+  { id:'m10', name:'Miel Pura x 500 g',          cat:'almacen', catLabel:'Almacén', price:4990, unit:'unidad', c1:'#c8901a', c2:'#5a380a', desc:'Miel pura natural. Ideal para marinadas y postres.', origin:'Apicultura', cut:'Miel', weight:'500 g' },
 ];
 
 const CATEGORIES = [
-  { id: 'all',        label: 'Todos' },
-  { id: 'vacuno',     label: 'Vacuno' },
-  { id: 'cerdo',      label: 'Cerdo' },
-  { id: 'pollo',      label: 'Pollo' },
-  { id: 'cordero',    label: 'Cordero' },
-  { id: 'embutidos',  label: 'Embutidos · Achuras' },
-  { id: 'preparados', label: 'Preparados' },
+  { id:'all',       label:'Todos' },
+  { id:'vacuno',    label:'Vacuno' },
+  { id:'cerdo',     label:'Cerdo' },
+  { id:'pollo',     label:'Pollo' },
+  { id:'achuras',   label:'Achuras' },
+  { id:'embutidos', label:'Embutidos' },
+  { id:'almacen',   label:'Almacén' },
 ];
 
 const formatARS = (n) => '$' + n.toLocaleString('es-AR');
 
-window.PRODUCTS = PRODUCTS;
+window.PRODUCTS   = PRODUCTS;
 window.CATEGORIES = CATEGORIES;
-window.formatARS = formatARS;
+window.formatARS  = formatARS;
