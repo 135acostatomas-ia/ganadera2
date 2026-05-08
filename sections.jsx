@@ -72,15 +72,18 @@ const ProductsSection = ({ onOpen, onAdd }) => {
             Selección semanal de carnes vacunas, cerdo, cordero patagónico, pollo de campo
             y embutidos de elaboración propia. Cortes a medida sin costo adicional.
           </p>
-          <button
-            className={"btn btn--ghost catalog-toggle" + (collapsed ? '' : ' catalog-toggle--open')}
-            onClick={() => setCollapsed(c => !c)}
-            aria-expanded={!collapsed}
-          >
-            {collapsed ? 'Ver catálogo' : 'Minimizar catálogo'}
-            <Icon name="arrowDown" size={15}/>
-          </button>
         </div>
+        <button
+          className={"catalog-toggle" + (collapsed ? '' : ' catalog-toggle--open')}
+          onClick={() => setCollapsed(c => !c)}
+          aria-expanded={!collapsed}
+        >
+          <span className="catalog-toggle__label">
+            <Icon name="knife" size={18}/>
+            {collapsed ? `Ver catálogo completo — ${PRODUCTS.length} cortes` : 'Minimizar catálogo'}
+          </span>
+          <span className="catalog-toggle__arrow"><Icon name="arrowDown" size={18}/></span>
+        </button>
         {!collapsed && (
           <>
             <div className="filter-bar">

@@ -104,9 +104,12 @@ a{color:inherit;text-decoration:none}
 /* ------------ section primitives ------------- */
 section{padding:96px 0;border-bottom:1px solid var(--line)}
 .section-head{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:end;margin-bottom:56px}
-.catalog-toggle{display:flex;align-items:center;gap:8px;margin-top:24px;align-self:end}
-.catalog-toggle svg{transition:transform .25s}
-.catalog-toggle--open svg{transform:rotate(180deg)}
+.catalog-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;margin-top:48px;padding:20px 28px;border-radius:12px;background:var(--ink);color:var(--bg);font-family:var(--serif);font-size:20px;font-weight:600;letter-spacing:-.01em;cursor:pointer;transition:background .2s,transform .12s;border:none}
+.catalog-toggle:hover{background:var(--red)}
+.catalog-toggle:active{transform:scale(.99)}
+.catalog-toggle__label{display:flex;align-items:center;gap:12px}
+.catalog-toggle__arrow svg{transition:transform .3s}
+.catalog-toggle--open .catalog-toggle__arrow svg{transform:rotate(180deg)}
 .section-head h2{font-family:var(--serif);font-size:clamp(40px,6vw,82px);font-weight:600;letter-spacing:-.02em;line-height:.95}
 .section-head h2 em{font-style:italic;font-weight:400;color:var(--red)}
 .section-head__copy{color:var(--ink-2);font-size:17px;line-height:1.55;max-width:48ch}
