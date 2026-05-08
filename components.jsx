@@ -36,16 +36,9 @@ const Icon = ({ name, size = 18, stroke = 1.6 }) => {
   );
 };
 
-// --- Logo (cow-in-oval, redrawn original) ---
+// --- Logo (imagen real desde assets) ---
 const Logo = ({ size = 42 }) => (
-  <svg viewBox="0 0 100 110" width={size} height={size * 1.1}>
-    {/* Outer navy oval ring (open at bottom-left) */}
-    <path d="M 30 100 A 42 50 0 1 1 28 12" fill="none" stroke="#1F3A8A" strokeWidth="6" strokeLinecap="round"/>
-    {/* Red oval body */}
-    <ellipse cx="48" cy="55" rx="32" ry="42" fill="#C8202E"/>
-    {/* Cow silhouette negative-space (white) */}
-    <path d="M30 30 Q34 22 40 22 L42 18 Q46 14 50 18 L52 22 Q60 22 64 30 L68 26 Q72 26 70 32 L66 36 Q70 44 66 52 L62 58 Q60 66 64 72 Q66 78 60 80 L52 82 Q44 82 40 78 L36 74 Q32 76 30 72 Q26 68 28 60 L26 52 Q22 44 28 38 Z" fill="#fbf7f0"/>
-  </svg>
+  <img src="assets/ganadera-logo.png" alt="Ganadera Logo" width={size} height={size} style={{ objectFit: 'contain' }} />
 );
 
 // --- Placeholder image with cut-name overlay (since user said placeholders) ---
