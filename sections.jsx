@@ -51,6 +51,7 @@ const Hero = ({ onShop }) => (
 const ProductsSection = ({ onOpen, onAdd }) => {
   const [cat, setCat] = useState('all');
   const [sort, setSort] = useState('rec');
+  const [collapsed, setCollapsed] = useState(true);
   const filtered = useMemo(() => {
     let arr = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
     if (sort === 'price-asc') arr = [...arr].sort((a,b) => a.price - b.price);
@@ -71,24 +72,36 @@ const ProductsSection = ({ onOpen, onAdd }) => {
             Selección semanal de carnes vacunas, cerdo, cordero patagónico, pollo de campo
             y embutidos de elaboración propia. Cortes a medida sin costo adicional.
           </p>
+          <button
+            className={"btn btn--ghost catalog-toggle" + (collapsed ? '' : ' catalog-toggle--open')}
+            onClick={() => setCollapsed(c => !c)}
+            aria-expanded={!collapsed}
+          >
+            {collapsed ? 'Ver catálogo' : 'Minimizar catálogo'}
+            <Icon name="arrowDown" size={15}/>
+          </button>
         </div>
-        <div className="filter-bar">
-          {CATEGORIES.map(c => (
-            <button key={c.id} className={"chip " + (cat === c.id ? 'is-active' : '')} onClick={() => setCat(c.id)}>
-              {c.label}
-            </button>
-          ))}
-          <span className="spacer"/>
-          <select value={sort} onChange={e => setSort(e.target.value)}>
-            <option value="rec">Recomendados</option>
-            <option value="price-asc">Precio ↑</option>
-            <option value="price-desc">Precio ↓</option>
-            <option value="name">Nombre A–Z</option>
-          </select>
-        </div>
-        <div className="products">
-          {filtered.map(p => <ProductCard key={p.id} p={p} onOpen={onOpen} onAdd={onAdd}/>)}
-        </div>
+        {!collapsed && (
+          <>
+            <div className="filter-bar">
+              {CATEGORIES.map(c => (
+                <button key={c.id} className={"chip " + (cat === c.id ? 'is-active' : '')} onClick={() => setCat(c.id)}>
+                  {c.label}
+                </button>
+              ))}
+              <span className="spacer"/>
+              <select value={sort} onChange={e => setSort(e.target.value)}>
+                <option value="rec">Recomendados</option>
+                <option value="price-asc">Precio ↑</option>
+                <option value="price-desc">Precio ↓</option>
+                <option value="name">Nombre A–Z</option>
+              </select>
+            </div>
+            <div className="products">
+              {filtered.map(p => <ProductCard key={p.id} p={p} onOpen={onOpen} onAdd={onAdd}/>)}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
